@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-color: #191919;
+  --text-color: #9a9a9a;
+  --second-color: #ffffff42;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--main-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App__Clock {
+  width: 100%;
+  max-width: 700px;
+  margin: 3vw;
+  padding: 20px;
+}
+
+.Clock__component {
+  padding: 20px 15px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.component__title {
+  text-align: right;
+  width: 120px;
+  white-space: nowrap;
+  font-size: 18px;
+  margin-right: 2vw;
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+.title__value {
+  display: inline-block;
+  width: 20px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .Clock__component {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .component__title {
+    padding: 0;
+    text-align: left;
+  }
+}
+
+.component__content {
+  width: 100%;
+  height: 16px;
+  /* margin-left: 2; */
+}
+
+.component__hours,
+.component__minutes,
+.component__seconds {
+  display: grid;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.component__hours {
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.component__minutes,
+.component__seconds {
+  grid-template-columns: repeat(60, 1fr);
+}
+
+.content__unit {
+  width: 0.4vw;
+  max-width: 3px;
+  height: 0.4vw;
+  max-height: 3px;
+  border-radius: 1px;
+  background: var(--second-color);
+}
+
+.hours__unit {
+  transform: scale(1.7);
+}
+
+.component__minutes .active,
+.component__seconds .active {
+  transform: scale(1.5);
+  background: var(--text-color);
+}
+
+.component__hours .active {
+  background: var(--text-color);
+  transform: scale(2.3);
+}
+
+.component__hours .activeRed {
+  transform: scale(3.2);
+  background: rgb(199, 54, 54);
+}
+
+.component__minutes .activeRed,
+.component__seconds .activeRed {
+  transform: scale(2);
+  background: rgb(199, 54, 54);
+}
